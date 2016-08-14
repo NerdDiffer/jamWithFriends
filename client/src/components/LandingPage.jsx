@@ -32,7 +32,6 @@ class LandingPage extends React.Component {
   render() {
     return (
       <div id="landingPage">
-
         <section className="title">
           <h1>WELCOME TO TBD!</h1>
         </section>
@@ -44,10 +43,10 @@ class LandingPage extends React.Component {
             style={materialStyles}
           />
         </section>
-        */}
         <section className="divider">
           <Divider />
         </section>
+        */}
         <section className="createRoom">
           <div>
             <h2 id="callToAction"> What are you waiting for?</h2>
@@ -75,4 +74,3 @@ export default LandingPage;
 //         <img src="http://bit.ly/2bene30" />
 //         <img src=" http://bit.ly/2aRmWLh" />
 //         <img src=" http://bit.ly/2bf5qGu" />
-
