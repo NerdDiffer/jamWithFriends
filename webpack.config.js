@@ -19,10 +19,15 @@ const config = {
   module: {
     loaders: [
       {
-        test: /\.jsx?/,
+        test: /\.jsx?$/,
         include: SRC_DIR,
         loader: 'babel'
-      }
+      },
+      {
+        test: /\.less$/,
+        include: SRC_DIR,
+        loader: 'style!css!less'
+      },
     ]
   }
 };
