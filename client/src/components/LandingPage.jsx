@@ -69,7 +69,6 @@ class LandingPage extends React.Component {
             </Paper>
             <p id="callToAction"> What are you waiting for?</p>
           </div>
-          <img src="/Users/loaner/Desktop/tbd/client/public/style/RocheFace.png" />
           <RaisedButton
             label={<span style={{ fontSize: '30px', textTransform: 'none' }}>Jam Now!</span>}
             style={materialStyles}
