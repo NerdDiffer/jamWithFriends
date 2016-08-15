@@ -6,14 +6,13 @@ import shortid from 'shortid';
 import { socket } from '../peer';
 
 const materialStyles = {
-  position: 'absolute',
-  top: '70%',
-  left: '45%',
+  width: '25rem',
+  margin: '0 auto',
+  display: 'block'
 };
 
-
-const buttonStyles = {
-  fontSize: '30px',
+const jamNowLabelStyles = {
+  fontSize: '3rem',
   textTransform: 'none'
 };
 
@@ -48,12 +47,11 @@ class LandingPage extends React.Component {
         </section>
         */}
         <section className="createRoom">
-          <div>
-            <h2 id="callToAction"> What are you waiting for?</h2>
-          </div>
+          <h2 className="callToAction">What are you waiting for?</h2>
           <RaisedButton
-            label={<span style={buttonStyles}>Jam Now!</span>}
             style={materialStyles}
+            label="Jam Now!"
+            labelStyle={jamNowLabelStyles}
             onClick={this.handleClick}
           />
         </section>
