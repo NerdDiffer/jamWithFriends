@@ -18,6 +18,9 @@ const AppNavBar = () => (
       iconElementLeft={<Icon />}
       onTitleTouchTap={() => console.log('Go home')}
     >
+      <Link to="about">
+        <button className="navButtons">About</button>
+      </Link>
       <Link to="login" >
         <button className="navButtons">Login</button>
       </Link>

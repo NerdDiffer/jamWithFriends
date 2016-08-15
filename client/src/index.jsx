@@ -11,6 +11,7 @@ import JamRoom from './components/JamRoom';
 import Room from './components/Room';
 import Invalid from './components/Invalid';
 import Metronome from './components/Metronome';
+import About from './components/About';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -24,6 +25,7 @@ render((
       <Route path="signup" component={Signup} />
       <Route path="room/:roomId" component={Room} />
       <Route path="metronome" component={Metronome} />
+      <Route path="about" component={About} />
       <Route path="*" component={Invalid} />
     </Route>
   </Router>

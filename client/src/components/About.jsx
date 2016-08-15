@@ -2,21 +2,19 @@ import React from 'react';
 import Paper from 'material-ui/Paper';
 
 const paperStyle = {
-  height: 300,
-  width: 400,
-  margin: 20,
+  width: '40rem',
+  margin: '0 auto',
   textAlign: 'center',
-  display: 'inline-block',
-  backgroundImage: 'url("http://bit.ly/2b2ePzs")',
+  // display: 'inline-block',
   borderRadius: '12%',
   opacity: 0.6,
-  padding: '5px',
+  padding: '1rem',
   fontWeight: 900,
   fontFamily: '"Trebuchet MS", Helvetica, sansSerif'
 };
 
 const About = (props) => (
-  <Paper style={paperStyle} zDepth={5} >
+  <Paper style={paperStyle}>
     <div id="introText">
       <p>LiveJam allows music aficianados to collaboratively jam out using virtual instruments.</p>
       <p>The app lets “Jammers” form or join dedicated rooms where they can create tracks (and lifetime memories) with one another.</p>
