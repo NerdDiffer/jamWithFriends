@@ -1,6 +1,13 @@
 import { Loop } from 'tone';
-import tick from '../sounds/tick';
+import { membrane, metal } from '../sounds/tick';
 
-const tickPart = new Loop(time => tick.triggerAttackRelease('C2', '8n', time));
+const membranePart = new Loop(time => (
+  membrane.triggerAttackRelease('Bb5', '8n'))
+);
 
-export default tickPart;
+const metalPart = new Loop(time => {
+  const duration = 100;
+  return metal.triggerAttackRelease(duration, time);
+});
+
+export default membranePart;
