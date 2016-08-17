@@ -3,20 +3,28 @@ import Paper from 'material-ui/Paper';
 import Slider from 'material-ui/Slider';
 import { Transport } from 'tone';
 import StartStopButton from './StartStopButton';
-import tick from '../../instruments/sounds/tick';
+
+import tick from '../../instruments/beats/tick';
+import bell from '../../instruments/beats/bell';
+import conga from '../../instruments/beats/conga';
 
 /**
   * Represents the Metronome's sound. IE:
   * The color, duration, offset & connection to the main sound output
   * Whereas, `Transport` is a centralized time manager.
   */
-const Tick = tick();
+const Beats = {
+  registry: [tick, bell, conga]
+};
+
+Beats.start = () => Beats.registry.forEach(beat => beat.start());
+Beats.stop = () => Beats.registry.forEach(beat => beat.stop());
 
 class Metronome extends Component {
   constructor(props) {
     super(props);
 
-    const bpm = 60;
+    const bpm = 120;
     Transport.bpm.value = bpm;
 
     this.state = {
@@ -32,12 +40,12 @@ class Metronome extends Component {
 
   start() {
     Transport.start();
-    Tick.start();
+    Beats.start();
   }
 
   stop() {
     Transport.stop();
-    Tick.stop();
+    Beats.stop();
   }
 
   changeBPM(_event, value) {
@@ -68,7 +76,7 @@ class Metronome extends Component {
           max={240}
           step={2}
           onChange={changeBPM}
-          value={61}
+          value={bpm}
         />
         Tempo: { bpm } bpm
         <br />
