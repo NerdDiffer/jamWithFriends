@@ -1,17 +1,7 @@
-import { MetalSynth, Sequence } from 'tone';
+import { Sequence } from 'tone';
+import bell from '../sounds/bell';
 
-// Tone color (timbre)
-const bell = new MetalSynth({
-  harmonicity: 12,
-  resonance: 800,
-  modulationIndex: 20,
-  envelope: {
-    decay: 0.4,
-  },
-  volume: -15
-}).toMaster();
-
-// notes to play
+// notes & rhythms to play
 const bellEvents = [
   300, null, 200, null, 200, 200, null, 200, null, 200, null, 200
 ];

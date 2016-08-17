@@ -1,17 +1,7 @@
-import { MembraneSynth, Sequence } from 'tone';
+import { Sequence } from 'tone';
+import conga from '../sounds/conga';
 
-// Tone color (timbre)
-const conga = new MembraneSynth({
-  pitchDecay: 0.008,
-  octaves: 2,
-  envelope: {
-    attack: 0.0006,
-    decay: 0.5,
-    sustain: 0
-  }
-}).toMaster();
-
-// notes to play
+// notes & rhythms to play
 const congaEvents = [['G3', 'Bb4', 'D3'], ['Bb4', 'D3', 'F3']];
 
 const congaPart = new Sequence((time, pitch) => {
