@@ -348,6 +348,7 @@ app.get('/MakeInstrument', (req, res) => {
 });
 
 app.get('/api/beats', routes.beats.index);
+app.post('/api/beats', routes.beats.newBeat);
 
 app.get('/auth/facebook', passport.authenticate('facebook'));
 
