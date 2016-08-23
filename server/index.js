@@ -13,6 +13,8 @@ const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
 require("dotenv").config();
 
+const routes = require('./routes');
+
 /* Init */
 const app = express();
 const server = http.createServer(app);
@@ -334,6 +336,18 @@ app.post('/signup', (req, res) => {
     }
   });
 });
+
+app.get('/MakeInstrument', (req, res) => {
+  console.log("youre trying to access make Instrument!!!");
+
+  if (!req.session.userName&&!req.session.passport) {
+    res.redirect("/login");
+  } else {
+    console.log("Do nothing");
+  }
+});
+
+app.get('/api/beats', routes.beats.index);
 
 app.get('/auth/facebook', passport.authenticate('facebook'));
 
