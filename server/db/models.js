@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
-
 const sequelize = new Sequelize('tbd', 'root', '12345');
 
+/* Model definitions */
 const users = sequelize.define('user', {
   userName: {
     type: Sequelize.STRING
@@ -23,15 +23,6 @@ const users = sequelize.define('user', {
   timestamps: false,
 });
 
-sequelize
-  .sync({ force: false })
-  .then(() => {
-    console.log('It worked!');
-  }, err => {
-    console.log('An error occurred while creating the table:', err);
-  });
-
-
 const PrivateRooms = sequelize.define('privaterooms', {
   url: {
     type: Sequelize.STRING
@@ -40,17 +31,17 @@ const PrivateRooms = sequelize.define('privaterooms', {
   tableName: 'privaterooms',
 });
 
-PrivateRooms.belongsTo(users);
-users.hasMany(PrivateRooms);
-
-sequelize
-  .sync({ force: false })
-  .then(() => {
-    console.log('It worked!');
-  }, err => {
-    console.log('An error occurred while creating the table:', err);
-  });
-
+const beats = sequelize.define('beats',
+  // columns
+  {
+    sequences: { type: Sequelize.STRING },
+  },
+  // table config
+  {
+    tableName: 'beats',
+    timestamps: true,
+  }
+);
 
 const instruments = sequelize.define('instruments', {
   userName: {
@@ -92,6 +83,13 @@ const instruments = sequelize.define('instruments', {
   timestamps: false,
 });
 
+/* Associations */
+users.hasMany(beats);
+beats.belongsTo(users);
+PrivateRooms.belongsTo(users);
+users.hasMany(PrivateRooms);
+
+/* Connection */
 sequelize
   .authenticate()
   .then(err => {
@@ -110,8 +108,10 @@ sequelize
   });
 
 
+/* Exports */
 module.exports = {
   users,
   PrivateRooms,
-  instruments
+  instruments,
+  beats
 };
