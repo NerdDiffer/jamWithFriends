@@ -30,8 +30,8 @@ const PrivateRooms = require('./db/models').PrivateRooms;
 /* Middleware */
 app.use(cookieParser());
 app.use(logger('dev'));
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const pathToStaticDir = path.resolve(__dirname, '..', 'client/public');
 

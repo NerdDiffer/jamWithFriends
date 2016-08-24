@@ -4,6 +4,7 @@ import Sequence from './Sequence';
 import PlayStopButton from './PlayStopButton';
 import AddSequenceButton from './AddSequenceButton';
 import TempoSlider from './TempoSlider';
+import SaveSequencesButton from './SaveSequencesButton'
 
 /**
  * logic of:
@@ -28,6 +29,7 @@ class BeatSequencer extends Component {
     this.changeBPM = this.changeBPM.bind(this);
     this.addSequence = this.addSequence.bind(this);
     this.removeSequence = this.removeSequence.bind(this);
+    this.saveSequences = this.saveSequences.bind(this);
   }
 
   togglePlaying() {
@@ -69,6 +71,42 @@ class BeatSequencer extends Component {
     });
   }
 
+  saveSequences() {
+    const refs = this.refs;
+
+    const save = (sequence, index) => {
+      const ref = refs[`index-${index}`];
+      const saved = ref.save();
+      saved.index = index;
+      return saved;
+    };
+    const serializedSequences = [];
+    var i = 0;
+
+    let serializedSequence;
+
+    for (var key in refs) {
+      serializedSequence = save(refs[key], i);
+      serializedSequences.push(serializedSequence);
+      i += 1;
+    }
+
+    console.log(serializedSequences);
+    const body = JSON.stringify({ sequences: serializedSequences });
+    //console.log(body);
+    return fetch('http://localhost:3000/api/beats', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: body
+    })
+    .then(response => { return response.json(); console.log(response.json()); })
+    .then(json => { console.log(json) })
+    .catch(err => { console.error(err) });
+  }
+
   render() {
     const removeSequence = this.removeSequence;
     const renderSequences = () => {
@@ -83,6 +121,7 @@ class BeatSequencer extends Component {
             isPlaying={isPlaying}
             key={index}
             handleClick={removeThisSequence}
+            ref={`index-${index}`}
           />
         );
       });
@@ -95,6 +134,9 @@ class BeatSequencer extends Component {
           <PlayStopButton
             isPlaying={this.state.isPlaying}
             handleClick={this.togglePlaying}
+          />
+          <SaveSequencesButton
+            handleClick={this.saveSequences}
           />
           <TempoSlider
             bpm={this.state.bpm}

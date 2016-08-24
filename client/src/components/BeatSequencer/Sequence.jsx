@@ -34,6 +34,7 @@ class Sequence extends Component {
     this.handleEdit = this.handleEdit.bind(this);
     this.closePopover = this.closePopover.bind(this);
     this.selectSequence = this.selectSequence.bind(this);
+    this.save = this.save.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -98,6 +99,14 @@ class Sequence extends Component {
       sound,
       sequence: toneSequence(sound, this.state.events, this.state.subdivision)
     });
+  }
+
+  save() {
+    return {
+      sound: { tone: 'Bb4', def: 'membrane' }, // TODO: do not hardcode this
+      events: this.state.events,
+      subdivision: this.state.subdivision
+    }
   }
 
   render() {
