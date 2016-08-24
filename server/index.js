@@ -263,6 +263,7 @@ app.get('/logout', (req, res) => {
   console.log('mysession', req.session);
   if (req.session.userName) {
     delete req.session.userName;
+    delete req.session.userId;
   }
   req.logout();
   console.log('mysession after logout', req.session);
@@ -300,7 +301,9 @@ app.post('/login', (req, res) => {
                userInstruments.map(a => a.dataValues)
             )).then(userInstrumentsList => {
               console.log("succ logged in", userInstrumentsList);
+              const userId = user[0].dataValues.id;
               req.session.userName = req.body.user;
+              req.session.userId = userId;
               res.send(userInstrumentsList);
             });
         } else {
@@ -331,6 +334,7 @@ app.post('/signup', (req, res) => {
       }).then(entry => {
         console.log(entry.dataValues, ' got entered');
         req.session.userName = req.body.user;
+        req.session.userId = entry.dataValues.id;
         res.send('SuccessSignup');
       });
     }
@@ -384,7 +388,6 @@ app.get("/userLoggedInToMakeInst", (req, res) => {
 });
 
 app.get("/fbLoggedIn?", (req, res) => {
-  console.log(req.session.passport);
   res.send(req.session.passport ? "true" : "false");
 });
 
