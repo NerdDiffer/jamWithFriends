@@ -4,8 +4,6 @@ import $ from "jquery";
 import { Link } from 'react-router';
 import NavMenuIcon from './NavMenuIcon';
 
-const color={ backgroundImage: 'url("http://bit.ly/2b2ePzs")', width: "100%", opacity: 0.6 };
-
 class AppNavBar extends Component {
 
   componentDidMount() {
@@ -26,14 +24,13 @@ class AppNavBar extends Component {
     return (
       <div id="navBar">
         <AppBar
-          style={color}
           showMenuIconButton={false}
-        >
-          <Link to="/">
-            <img id="logo" src="http://bit.ly/2beSCQg" alt="logo" />
-          </Link>
-          <NavMenuIcon />
-        </AppBar>
+          title="tbd"
+          titleStyle={{ color: '#E8AEB7' }}
+          onTitleTouchTap={() => { this.context.router.push('/'); }}
+          style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
+          iconElementRight={<NavMenuIcon id="menuicon"/>}
+        />
       </div>
     ); }
   }
