@@ -644,3 +644,7 @@ text#step3 {
   width: 23%;
   padding: 1%;
 }
+
+.authors .author .authorLink {
+  display: block;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
+import { Link } from 'react-router';
 import Author from './Author';
 
 const aboutAppStyles = {
@@ -28,7 +29,10 @@ const About = (props) => (
 
     <Paper style={aboutAuthorsStyle}>
       <section className="group">
-        Colossal Bubble is a group of developers based in San Francisco, CA.
+        <p>Colossal Bubble is a group of developers based in San Francisco, CA.</p>
+        <p>
+          The source code is available on <Link to="https://github.com/ColossalBubble/jamWithFriends" target="_blank">GitHub</Link>
+        </p>
       </section>
       <section className="authors">
         <Author
