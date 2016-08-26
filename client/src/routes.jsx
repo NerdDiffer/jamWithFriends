@@ -13,6 +13,7 @@ import Invalid from './components/Invalid';
 import Metronome from './components/Metronome';
 import UserMakeInstrument from './components/UserMakeInstrument';
 import BeatSequencer from './components/BeatSequencer';
+import About from './components/About';
 
 
 export default (
@@ -25,6 +26,7 @@ export default (
     <Route path="metronome" component={Metronome} />
     <Route path="MakeInstrument" component={UserMakeInstrument} />
     <Route path="beats" component={BeatSequencer} />
+    <Route path="about" component={About} />
     <Route path="*" component={Invalid} />
   </Route>
 );
