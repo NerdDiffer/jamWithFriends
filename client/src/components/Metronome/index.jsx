@@ -3,14 +3,12 @@ import Paper from 'material-ui/Paper';
 import Slider from 'material-ui/Slider';
 import { Transport } from 'tone';
 import StartStopButton from './StartStopButton';
-import { membrane } from '../../instruments/sounds/tick';
+import SampleBeats from '../../instruments/beats/jamRoom';
 
-/**
-  * Represents the Metronome's sound. IE:
-  * The color, duration, offset & connection to the main sound output
-  * Whereas, `Transport` is a centralized time manager.
-  */
-const Tick = membrane;
+const Beats = {
+  start: () => SampleBeats.forEach(beat => beat.start()),
+  stop: () => SampleBeats.forEach(beat => beat.stop())
+};
 
 class Metronome extends Component {
   constructor(props) {
@@ -32,12 +30,12 @@ class Metronome extends Component {
 
   start() {
     Transport.start();
-    Tick.start();
+    Beats.start();
   }
 
   stop() {
     Transport.stop();
-    Tick.stop();
+    Beats.stop();
   }
 
   changeBPM(_event, value) {

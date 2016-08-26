@@ -7,6 +7,7 @@ import Drums from './Drums';
 import PeerBar from './PeerBar';
 import Invite from './Invite';
 import SelectInstrument from './SelectInstrument';
+import Metronome from './Metronome';
 import { instruments } from '../instruments/store';
 
 class JamRoom extends Component {
@@ -33,6 +34,7 @@ class JamRoom extends Component {
     return (
       <div id="jamroom">
         <div className="instrumentContainer">
+          <Metronome />
           {this.props.instrument === 'drums' ? <Drums /> : null}
           {this.props.instrument === 'piano' ? <Piano /> : null}
           {
