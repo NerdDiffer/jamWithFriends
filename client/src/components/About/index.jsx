@@ -1,5 +1,6 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
+import Author from './Author';
 
 const aboutAppStyles = {
   width: 400,
@@ -27,10 +28,25 @@ const About = (props) => (
 
     <Paper style={aboutAuthorsStyle}>
       <section className="group">
+        Colossal Bubble is a group of developers based in San Francisco, CA.
       </section>
       <section className="authors">
-        <section className="author">
-        </section>
+        <Author
+          name="Frances Yang"
+          links={{ linkedin: 'https://www.linkedin.com/in/frances-yang-07624b123', github: 'https://github.com/ffhy' }}
+        />
+        <Author
+          name="Krishan Arya"
+          links={{ linkedin: 'https://www.linkedin.com/in/krishanarya1', github: 'https://github.com/Anoninnyc' }}
+        />
+        <Author
+          name="Greg Roche"
+          links={{ linkedin: 'https://www.linkedin.com/in/gregoryrroche', github: 'https://github.com/grrman93' }}
+        />
+        <Author
+          name="Rafael Espinoza"
+          links={{ linkedin: 'https://www.linkedin.com/in/rafesp', github: 'https://github.com/NerdDiffer' }}
+        />
       </section>
     </Paper>
   </div>
