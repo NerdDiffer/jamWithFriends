@@ -492,18 +492,6 @@ position: relative;
   font-size: 30px;
 }
 
-#introText {
-  padding:7px;
-  border-radius:20%;
-  color:white;
-  width:350px;
-  position:absolute;
-  font-size: 15px;
-  font-weight: bold;
-  size:20px;
-
-}
-
 #link-window {
   background-color: blue;
   position: absolute;
@@ -578,7 +566,7 @@ input:invalid {
   position:relative;
   top:30%;
  }
- 
+
  #loginContent {
   position:absolute;
   top:30%;
@@ -643,4 +631,16 @@ text#step3 {
   color: white;
   bottom: 130px;
   left: 65px;
+}
+
+.authors {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.authors .author {
+  display: inline-block;
+  width: 23%;
+  padding: 1%;
 }
