@@ -1,4 +1,6 @@
 const socketIO = require('socket.io');
+const shortid = require('shortid');
+const { instruments } = require('./db/models');
 
 const io = socketIO.listen(server); // TODO: figure out `server`
 
@@ -121,7 +123,7 @@ io.on('connection', socket => {
 
   socket.on('newInstCreated', instrument => {
     console.log('this is a brand new instrument', instrument, instrument.A);
-    instruments.create({ // TODO: import instruments
+    instruments.create({
       userName: instrument.userName,
       instrumentName: instrument.name,
       A: instrument.A,
@@ -147,7 +149,7 @@ io.on('connection', socket => {
   // need to do this because using a different socket from one used
   // to establish rtc connections
   socket.on('add as listener', room => {
-    listenerRooms[room] = listenerRooms[room] || shortid.generate(); // TODO: import `shortid`
+    listenerRooms[room] = listenerRooms[room] || shortid.generate();
     socket.join(listenerRooms[room]);
   });
 
