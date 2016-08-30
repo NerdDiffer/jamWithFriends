@@ -1,8 +1,8 @@
-const socketIO = require('socket.io');
+const SocketServer = require('socket.io');
 const shortid = require('shortid');
 const { instruments } = require('./db/models');
 
-const io = socketIO.listen(server); // TODO: figure out `server`
+const io = new SocketServer();
 
 // rooms for peer connection sockets
 const rooms = {};
@@ -190,3 +190,5 @@ io.on('connection', socket => {
     return container;
   }
 });
+
+module.exports = io;

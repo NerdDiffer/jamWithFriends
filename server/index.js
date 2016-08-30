@@ -9,11 +9,12 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 const expressSession=require('express-session');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
-require("dotenv").config();
 
 /* Init */
 const app = express();
 const server = http.createServer(app);
+require('./sockets').listen(server);
+require("dotenv").config();
 
 /* DB  */
 const users = require('./db/models').users;
