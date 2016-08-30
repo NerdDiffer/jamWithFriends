@@ -1,8 +1,9 @@
 {
-  "name": "tbd",
+  "name": "jamWithFriends",
   "version": "0.0.0",
   "description": "Play digital instruments, like Jam with Chrome",
   "main": "server/index.js",
+  "engine": { "node" : ">=6.4.0" },
   "scripts": {
     "prestart": "npm install",
     "start": "npm run front-end & npm run back-end",
@@ -15,14 +16,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ColossalBubble/tbd.git"
+    "url": "git+https://github.com/ColossalBubble/jamWithFriends.git"
   },
   "author": "\"Frances Yang, Krishan Arya, Greg Roche, Rafael Espinoza\"",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ColossalBubble/tbd/issues"
+    "url": "https://github.com/ColossalBubble/jamWithFriends/issues"
   },
-  "homepage": "https://github.com/ColossalBubble/tbd#readme",
+  "homepage": "https://github.com/ColossalBubble/jamWithFriends#readme",
   "devDependencies": {
     "eslint": "^3.2.2",
     "eslint-config-airbnb": "^10.0.0",
